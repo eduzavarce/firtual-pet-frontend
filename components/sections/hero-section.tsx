@@ -1,6 +1,5 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { apiService } from "@/lib/services/api"
 
@@ -33,19 +32,6 @@ export function HeroSection() {
           >
             {apiService.isAuthenticated() ? "VIEW YOUR TOONS" : "CREATE YOUR UGLY TOON"}
           </Button>
-        </div>
-
-        {/* Hero Character */}
-        <div className="mt-12 flex justify-center">
-          <div className="relative">
-            <Image
-              src="/assets/rabbit.png"
-              alt="Ugly Rabbit Character"
-              width={300}
-              height={300}
-              className="animate-bounce-slow"
-            />
-          </div>
         </div>
       </div>
     </section>

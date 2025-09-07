@@ -37,6 +37,11 @@ export function Navbar() {
               <Link href="/dashboard" className="font-bold text-foreground hover:text-primary transition-colors">
                 Dashboard
               </Link>
+              {apiService.isAdmin() && (
+                <Link href="/backoffice" className="font-bold text-foreground hover:text-primary transition-colors">
+                  Backoffice
+                </Link>
+              )}
               <Button
                 onClick={handleLogout}
                 variant="outline"

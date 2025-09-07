@@ -20,6 +20,12 @@ const petImages = {
 
 export function PetCard({ pet, onUpdate }: PetCardProps) {
   const [isLoading, setIsLoading] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [isRenaming, setIsRenaming] = useState(false)
+  const [newName, setNewName] = useState(pet.name)
+  const [renameError, setRenameError] = useState("")
+  const [isSavingName, setIsSavingName] = useState(false)
 
   const handleAction = async (action: "feed" | "play" | "sleep") => {
     setIsLoading(true)
@@ -40,6 +46,46 @@ export function PetCard({ pet, onUpdate }: PetCardProps) {
       console.error(`Failed to ${action}:`, err)
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const handleDelete = async () => {
+    setIsDeleting(true)
+    try {
+      await apiService.deletePet(pet.id)
+      onUpdate()
+    } catch (err) {
+      console.error("Failed to delete pet:", err)
+    } finally {
+      setIsDeleting(false)
+      setConfirmDelete(false)
+    }
+  }
+
+  const handleRenameSave = async () => {
+    const trimmed = newName.trim()
+    if (!trimmed) {
+      setRenameError("Name cannot be empty")
+      return
+    }
+    if (trimmed === pet.name) {
+      // Nothing to do
+      setIsRenaming(false)
+      setRenameError("")
+      setNewName(pet.name)
+      return
+    }
+    setRenameError("")
+    setIsSavingName(true)
+    try {
+      await apiService.renamePet(pet.id, trimmed)
+      setIsRenaming(false)
+      onUpdate()
+    } catch (err) {
+      console.error("Failed to rename pet:", err)
+      setRenameError(err instanceof Error ? err.message : "Failed to rename")
+    } finally {
+      setIsSavingName(false)
     }
   }
 
@@ -109,6 +155,86 @@ export function PetCard({ pet, onUpdate }: PetCardProps) {
           >
             Sleep
           </Button>
+        </div>
+
+        {/* Rename & Delete controls */}
+        <div className="mt-4 space-y-3">
+          {isRenaming ? (
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                  maxLength={50}
+                  className="w-full px-3 py-2 rounded-md border-2 border-border chunky-border bg-background text-foreground font-bold"
+                  placeholder="Enter new name"
+                />
+                <Button
+                  onClick={handleRenameSave}
+                  size="sm"
+                  disabled={isSavingName}
+                  className="font-bold chunky-border bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  {isSavingName ? "Saving..." : "Save"}
+                </Button>
+                <Button
+                  onClick={() => {
+                    setIsRenaming(false)
+                    setNewName(pet.name)
+                    setRenameError("")
+                  }}
+                  size="sm"
+                  variant="outline"
+                  className="font-bold chunky-border bg-transparent"
+                >
+                  Cancel
+                </Button>
+              </div>
+              {renameError && <p className="text-destructive text-sm font-bold">{renameError}</p>}
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <Button
+                onClick={() => setIsRenaming(true)}
+                size="sm"
+                variant="outline"
+                className="font-bold chunky-border bg-transparent"
+              >
+                Rename
+              </Button>
+
+              {confirmDelete ? (
+                <>
+                  <Button
+                    onClick={handleDelete}
+                    size="sm"
+                    disabled={isDeleting}
+                    className="font-bold chunky-border bg-destructive hover:bg-destructive/90 text-destructive-foreground"
+                  >
+                    {isDeleting ? "Deleting..." : "Confirm"}
+                  </Button>
+                  <Button
+                    onClick={() => setConfirmDelete(false)}
+                    size="sm"
+                    variant="outline"
+                    className="font-bold chunky-border bg-transparent"
+                  >
+                    Cancel
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  onClick={() => setConfirmDelete(true)}
+                  size="sm"
+                  variant="outline"
+                  className="font-bold chunky-border bg-transparent text-destructive border-destructive"
+                >
+                  Delete
+                </Button>
+              )}
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>

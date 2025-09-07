@@ -60,10 +60,33 @@ class ApiService {
 
   private async handleResponse<T>(response: Response): Promise<T> {
     if (!response.ok) {
-      const error = await response.json().catch(() => ({ message: "Network error" }))
-      throw new Error(error.message || `HTTP ${response.status}`)
+      // Try to parse error JSON; if none, fallback to generic message
+      const error = await response
+        .json()
+        .catch(() => ({ message: response.statusText || "Network error" }))
+      throw new Error((error as any).message || `HTTP ${response.status}`)
     }
-    return response.json()
+
+    // Handle 204 No Content or empty body safely
+    if (response.status === 204) {
+      return undefined as unknown as T
+    }
+
+    const contentLength = response.headers.get("content-length")
+    if (contentLength === "0") {
+      return undefined as unknown as T
+    }
+
+    const contentType = response.headers.get("content-type") || ""
+    if (contentType.includes("application/json")) {
+      // If body is empty, json() will throw; guard by reading text first
+      const text = await response.text()
+      if (!text) return undefined as unknown as T
+      return JSON.parse(text) as T
+    }
+
+    // For non-JSON successful responses, return undefined
+    return undefined as unknown as T
   }
 
   // Auth methods
@@ -103,6 +126,18 @@ class ApiService {
   isAuthenticated(): boolean {
     if (typeof window === "undefined") return false
     return !!localStorage.getItem("auth_token")
+  }
+
+  isAdmin(): boolean {
+    if (typeof window === "undefined") return false
+    const token = localStorage.getItem("auth_token")
+    if (!token) return false
+    try {
+      const payload = JSON.parse(atob(token.split(".")[1] || "")) as { roles?: string[] }
+      return Array.isArray(payload.roles) && payload.roles.includes("ROLE_ADMIN")
+    } catch {
+      return false
+    }
   }
 
   // Pet methods
