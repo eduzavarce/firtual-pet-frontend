@@ -51,10 +51,10 @@ export interface RenamePetRequest {
 
 class ApiService {
   private getAuthHeaders(): HeadersInit {
-    const token = localStorage.getItem("auth_token")
+    const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null
     return {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
     }
   }
 
@@ -76,8 +76,10 @@ class ApiService {
 
     const result: ApiResponse<LoginResponse> = await this.handleResponse(response)
 
-    // Store token in localStorage
-    localStorage.setItem("auth_token", result.data.token)
+    // Store token in localStorage (browser only)
+    if (typeof window !== "undefined") {
+      localStorage.setItem("auth_token", result.data.token)
+    }
 
     return result.data
   }
@@ -93,10 +95,13 @@ class ApiService {
   }
 
   logout(): void {
-    localStorage.removeItem("auth_token")
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("auth_token")
+    }
   }
 
   isAuthenticated(): boolean {
+    if (typeof window === "undefined") return false
     return !!localStorage.getItem("auth_token")
   }
 
