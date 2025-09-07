@@ -174,7 +174,7 @@ export function PetCard({ pet, onUpdate }: PetCardProps) {
                   onClick={handleRenameSave}
                   size="sm"
                   disabled={isSavingName}
-                  className="font-bold chunky-border bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="font-bold chunky-border bg-orange-400 hover:bg-orange-600 text-white"
                 >
                   {isSavingName ? "Saving..." : "Save"}
                 </Button>
@@ -186,7 +186,7 @@ export function PetCard({ pet, onUpdate }: PetCardProps) {
                   }}
                   size="sm"
                   variant="outline"
-                  className="font-bold chunky-border bg-transparent"
+                  className="font-bold chunky-border bg-blue-600 hover:bg-blue-700 text-white"
                 >
                   Cancel
                 </Button>
@@ -199,7 +199,7 @@ export function PetCard({ pet, onUpdate }: PetCardProps) {
                 onClick={() => setIsRenaming(true)}
                 size="sm"
                 variant="outline"
-                className="font-bold chunky-border bg-transparent"
+                className="font-bold chunky-border bg-blue-600 hover:bg-blue-700 text-white"
               >
                 Rename
               </Button>
@@ -228,7 +228,7 @@ export function PetCard({ pet, onUpdate }: PetCardProps) {
                   onClick={() => setConfirmDelete(true)}
                   size="sm"
                   variant="outline"
-                  className="font-bold chunky-border bg-transparent text-destructive border-destructive"
+                  className="font-bold chunky-border bg-red-800 hover:bg-red-900 text-white"
                 >
                   Delete
                 </Button>
