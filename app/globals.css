@@ -4,143 +4,144 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color palette to match Ugly Toons grotesque 90s cartoon aesthetic */
-  --background: oklch(0.94 0.02 85); /* Light beige background #f2e7d5 */
-  --foreground: oklch(0.35 0.03 45); /* Dark brown text #5b4b3a */
-  --card: oklch(1 0 0); /* White for cards */
-  --card-foreground: oklch(0.45 0.04 45); /* Primary brown for card text #7d5b3a */
-  --popover: oklch(0.45 0.04 45); /* Primary brown for popovers */
-  --popover-foreground: oklch(1 0 0); /* White text on popovers */
-  --primary: oklch(0.65 0.25 35); /* Garish orange for buttons #ff4f00 */
-  --primary-foreground: oklch(1 0 0); /* White text on primary buttons */
-  --secondary: oklch(0.75 0.15 155); /* Vibrant green for secondary actions #55d69f */
-  --secondary-foreground: oklch(0.35 0.03 45); /* Dark brown for secondary text */
-  --muted: oklch(0.94 0.02 85); /* Muted beige for backgrounds */
-  --muted-foreground: oklch(0.35 0.03 45); /* Dark brown for muted text */
-  --accent: oklch(0.65 0.25 35); /* Garish orange for accent elements */
-  --accent-foreground: oklch(1 0 0); /* White text on accent elements */
-  --destructive: oklch(0.55 0.22 15); /* Red for destructive actions */
-  --destructive-foreground: oklch(1 0 0); /* White text for destructive buttons */
-  --border: oklch(0.35 0.03 45); /* Dark brown for borders */
-  --input: oklch(1 0 0); /* White for input fields */
-  --ring: oklch(0.65 0.25 35); /* Orange for focus rings */
-  --chart-1: oklch(0.45 0.04 45); /* Chart color 1 - primary brown */
-  --chart-2: oklch(0.65 0.25 35); /* Chart color 2 - orange */
-  --chart-3: oklch(0.75 0.15 155); /* Chart color 3 - green */
-  --chart-4: oklch(0.94 0.02 85); /* Chart color 4 - beige */
-  --chart-5: oklch(0.35 0.03 45); /* Chart color 5 - dark brown */
-  --radius: 0.5rem; /* Chunky rounded corners */
-  --sidebar: oklch(1 0 0); /* White for sidebar background */
-  --sidebar-foreground: oklch(0.35 0.03 45); /* Dark brown for sidebar text */
-  --sidebar-primary: oklch(0.65 0.25 35); /* Orange for primary sidebar actions */
-  --sidebar-primary-foreground: oklch(1 0 0); /* White text for primary sidebar actions */
-  --sidebar-accent: oklch(0.75 0.15 155); /* Green for sidebar accents */
-  --sidebar-accent-foreground: oklch(0.35 0.03 45); /* Dark brown for sidebar accent text */
-  --sidebar-border: oklch(0.35 0.03 45); /* Dark brown for sidebar borders */
-  --sidebar-ring: oklch(0.65 0.25 35); /* Orange for focus rings in sidebar */
+    /* Updated color palette to match Ugly Toons grotesque 90s cartoon aesthetic */
+    --background: oklch(0.94 0.02 85); /* Light beige background #f2e7d5 */
+    --foreground: oklch(0.35 0.03 45); /* Dark brown text #5b4b3a */
+    --card: oklch(1 0 0); /* White for cards */
+    --card-foreground: oklch(0.45 0.04 45); /* Primary brown for card text #7d5b3a */
+    --popover: oklch(0.45 0.04 45); /* Primary brown for popovers */
+    --popover-foreground: oklch(1 0 0); /* White text on popovers */
+    --primary: oklch(0.65 0.25 35); /* Garish orange for buttons #ff4f00 */
+    --primary-foreground: oklch(1 0 0); /* White text on primary buttons */
+    --secondary: oklch(0.75 0.15 155); /* Vibrant green for secondary actions #55d69f */
+    --secondary-foreground: oklch(0.35 0.03 45); /* Dark brown for secondary text */
+    --muted: oklch(0.94 0.02 85); /* Muted beige for backgrounds */
+    --muted-foreground: oklch(0.35 0.03 45); /* Dark brown for muted text */
+    --accent: oklch(0.65 0.25 35); /* Garish orange for accent elements */
+    --accent-foreground: oklch(1 0 0); /* White text on accent elements */
+    --destructive: oklch(0.55 0.22 15); /* Red for destructive actions */
+    --destructive-foreground: oklch(1 0 0); /* White text for destructive buttons */
+    --border: oklch(0.35 0.03 45); /* Dark brown for borders */
+    --input: oklch(1 0 0); /* White for input fields */
+    --ring: oklch(0.65 0.25 35); /* Orange for focus rings */
+    --chart-1: oklch(0.45 0.04 45); /* Chart color 1 - primary brown */
+    --chart-2: oklch(0.65 0.25 35); /* Chart color 2 - orange */
+    --chart-3: oklch(0.75 0.15 155); /* Chart color 3 - green */
+    --chart-4: oklch(0.94 0.02 85); /* Chart color 4 - beige */
+    --chart-5: oklch(0.35 0.03 45); /* Chart color 5 - dark brown */
+    --radius: 0.5rem; /* Chunky rounded corners */
+    --sidebar: oklch(1 0 0); /* White for sidebar background */
+    --sidebar-foreground: oklch(0.35 0.03 45); /* Dark brown for sidebar text */
+    --sidebar-primary: oklch(0.65 0.25 35); /* Orange for primary sidebar actions */
+    --sidebar-primary-foreground: oklch(1 0 0); /* White text for primary sidebar actions */
+    --sidebar-accent: oklch(0.75 0.15 155); /* Green for sidebar accents */
+    --sidebar-accent-foreground: oklch(0.35 0.03 45); /* Dark brown for sidebar accent text */
+    --sidebar-border: oklch(0.35 0.03 45); /* Dark brown for sidebar borders */
+    --sidebar-ring: oklch(0.65 0.25 35); /* Orange for focus rings in sidebar */
 }
 
 .dark {
-  /* Updated dark mode colors to maintain the grotesque aesthetic */
-  --background: oklch(0.15 0.02 45); /* Dark brown background */
-  --foreground: oklch(0.94 0.02 85); /* Light beige text */
-  --card: oklch(0.2 0.02 45); /* Darker brown for cards */
-  --card-foreground: oklch(0.94 0.02 85); /* Light beige for card text */
-  --popover: oklch(0.2 0.02 45); /* Darker brown for popovers */
-  --popover-foreground: oklch(0.94 0.02 85); /* Light beige text on popovers */
-  --primary: oklch(0.65 0.25 35); /* Keep garish orange */
-  --primary-foreground: oklch(1 0 0); /* White text on primary buttons */
-  --secondary: oklch(0.75 0.15 155); /* Keep vibrant green */
-  --secondary-foreground: oklch(0.15 0.02 45); /* Dark background for secondary text */
-  --muted: oklch(0.25 0.02 45); /* Muted dark brown */
-  --muted-foreground: oklch(0.7 0.02 85); /* Lighter beige for muted text */
-  --accent: oklch(0.65 0.25 35); /* Keep garish orange */
-  --accent-foreground: oklch(1 0 0); /* White text on accent elements */
-  --destructive: oklch(0.55 0.22 15); /* Keep red */
-  --destructive-foreground: oklch(1 0 0); /* White text for destructive buttons */
-  --border: oklch(0.35 0.03 45); /* Dark brown for borders */
-  --input: oklch(0.25 0.02 45); /* Dark brown for input fields */
-  --ring: oklch(0.65 0.25 35); /* Orange for focus rings */
-  --chart-1: oklch(0.45 0.04 45); /* Chart colors remain consistent */
-  --chart-2: oklch(0.65 0.25 35);
-  --chart-3: oklch(0.75 0.15 155);
-  --chart-4: oklch(0.94 0.02 85);
-  --chart-5: oklch(0.35 0.03 45);
-  --sidebar: oklch(0.2 0.02 45); /* Dark brown for sidebar */
-  --sidebar-foreground: oklch(0.94 0.02 85); /* Light beige for sidebar text */
-  --sidebar-primary: oklch(0.65 0.25 35); /* Orange for primary sidebar actions */
-  --sidebar-primary-foreground: oklch(1 0 0); /* White text */
-  --sidebar-accent: oklch(0.75 0.15 155); /* Green for sidebar accents */
-  --sidebar-accent-foreground: oklch(0.94 0.02 85); /* Light beige for sidebar accent text */
-  --sidebar-border: oklch(0.35 0.03 45); /* Dark brown for sidebar borders */
-  --sidebar-ring: oklch(0.65 0.25 35); /* Orange for focus rings */
+    /* Updated dark mode colors to maintain the grotesque aesthetic */
+    --background: oklch(0.15 0.02 45); /* Dark brown background */
+    --foreground: oklch(0.94 0.02 85); /* Light beige text */
+    --card: oklch(0.2 0.02 45); /* Darker brown for cards */
+    --card-foreground: oklch(0.94 0.02 85); /* Light beige for card text */
+    --popover: oklch(0.2 0.02 45); /* Darker brown for popovers */
+    --popover-foreground: oklch(0.94 0.02 85); /* Light beige text on popovers */
+    --primary: oklch(0.65 0.25 35); /* Keep garish orange */
+    --primary-foreground: oklch(1 0 0); /* White text on primary buttons */
+    --secondary: oklch(0.75 0.15 155); /* Keep vibrant green */
+    --secondary-foreground: oklch(0.15 0.02 45); /* Dark background for secondary text */
+    --muted: oklch(0.25 0.02 45); /* Muted dark brown */
+    --muted-foreground: oklch(0.7 0.02 85); /* Lighter beige for muted text */
+    --accent: oklch(0.65 0.25 35); /* Keep garish orange */
+    --accent-foreground: oklch(1 0 0); /* White text on accent elements */
+    --destructive: oklch(0.55 0.22 15); /* Keep red */
+    --destructive-foreground: oklch(1 0 0); /* White text for destructive buttons */
+    --border: oklch(0.35 0.03 45); /* Dark brown for borders */
+    --input: oklch(0.25 0.02 45); /* Dark brown for input fields */
+    --ring: oklch(0.65 0.25 35); /* Orange for focus rings */
+    --chart-1: oklch(0.45 0.04 45); /* Chart colors remain consistent */
+    --chart-2: oklch(0.65 0.25 35);
+    --chart-3: oklch(0.75 0.15 155);
+    --chart-4: oklch(0.94 0.02 85);
+    --chart-5: oklch(0.35 0.03 45);
+    --sidebar: oklch(0.2 0.02 45); /* Dark brown for sidebar */
+    --sidebar-foreground: oklch(0.94 0.02 85); /* Light beige for sidebar text */
+    --sidebar-primary: oklch(0.65 0.25 35); /* Orange for primary sidebar actions */
+    --sidebar-primary-foreground: oklch(1 0 0); /* White text */
+    --sidebar-accent: oklch(0.75 0.15 155); /* Green for sidebar accents */
+    --sidebar-accent-foreground: oklch(0.94 0.02 85); /* Light beige for sidebar accent text */
+    --sidebar-border: oklch(0.35 0.03 45); /* Dark brown for sidebar borders */
+    --sidebar-ring: oklch(0.65 0.25 35); /* Orange for focus rings */
 }
 
 /* Added custom font imports for comic book aesthetic */
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Lato:wght@400;700&display=swap");
 
 @theme inline {
-  /* Updated font configuration for Ugly Toons branding */
-  --font-sans: "Lato", var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-comic: "Bangers", cursive;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+    /* Updated font configuration for Ugly Toons branding */
+    --font-sans: "Lato", var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --font-comic: "Bangers", cursive;
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
 }
 
 /* Added custom utility classes for comic book styling */
 .font-comic {
-  font-family: var(--font-comic);
+    font-family: var(--font-comic);
 }
 
 .chunky-border {
-  border: 4px solid;
-  border-color: rgb(from var(--color-border) r g b);
+    border: 4px solid;
+    border-color: rgb(from var(--color-border) r g b);
 }
 
 .skew-slight {
-  transform: skew(-2deg);
+    transform: skew(-2deg);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
 }
